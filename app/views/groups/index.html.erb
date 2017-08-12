@@ -1,0 +1,28 @@
+<div class="col-md-12">
+  <div class="group">
+    <%= link_to("New Group", new_group_path, class: "btn btn-sm btn-primary pull-right")%>
+  </div>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <td>Title</td>
+        <td>Description</td>
+        <td></td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @groups.each do |group| %>
+      <tr>
+        <td><%= link_to(group.title, group_path(group))%></td>
+        <td><%= simple_format(group.description)%></td>
+        <td>
+          <%= link_to("Edit", edit_group_path(group), class: "btn btn-sm btn-default pull-right")%>
+          <%= link_to("Destroy", group_path(group), class: "btn btn-sm btn-default pull-right", method: :delete, data: {confirm: "Are you sure?"})%>
+        
+        </td>
+
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
