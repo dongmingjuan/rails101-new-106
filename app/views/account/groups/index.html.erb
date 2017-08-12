@@ -1,0 +1,15 @@
+<div class="col-md-12">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <td>Title</td>
+        <td>Description</td>
+        <td>Creator</td>
+        <td colspan="1"></td>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render :partial => "group", :collection => @groups, as: :group %>
+    </tbody>
+  </table>
+</div>

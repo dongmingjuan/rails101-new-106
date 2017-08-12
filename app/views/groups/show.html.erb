@@ -32,6 +32,10 @@
         <td><%= post.content %></td>
         <td><%= post.user.email %></td>
         <td><%= post.created_at %></td>
+        <td>
+          <%= link_to("Edit", edit_group_post_path(post.group,post), class: "btn btn-default")%>|
+          <%= link_to("Destroy", group_post_path(post.group,post), class: "btn btn-default", method: :delete, data: {confirm: "Are you sure?"})%>
+        </td>
       </tr>
       <% end %>
     </tbody>

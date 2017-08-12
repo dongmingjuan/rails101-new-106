@@ -1,0 +1,14 @@
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <td>Content</td>
+      <td>Writer</td>
+      <td>Created_at</td>
+      <td colspan="1"></td>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render :partial => "post", :collection => @posts, as: :post%>
+  </tbody>
+</table>
