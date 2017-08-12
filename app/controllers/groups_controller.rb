@@ -38,6 +38,22 @@ class GroupsController < ApplicationController
     flash[alert] = 'Group DELETE'
     redirect_to groups_path
   end
+  def join
+    @group = Group.find(params[:id])
+    if !current_user.is_member_of?(@group)
+      current_user.join!(@group)
+      flash[:notice] = '加入讨论组成功'
+      redirect_to group_path(@group)
+    end
+  end
+  def quit
+    @group = Group.find(params[:id])
+    if current_user.is_member_of?(@group)
+      current_user.quit!(@group)
+      flash[:warning] = '已经退出讨论组'
+      redirect_to group_path(@group)
+    end
+  end
   private
   def find_group_and_check_permission
     @group = Group.find(params[:id])
